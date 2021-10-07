@@ -1,11 +1,11 @@
-
 const express = require('express');
+
+const PORT = 5000;
+
+require('./config/db-config')
+
+
 
 const app = express();
 
-app.get('/home',(request, response) => {
-    console.log(request);
-    response.send('<h1>RentAGame</h1>');
-});
-
-app.listen(3000, () => console.log('Servidor boladão ON porta 3000'));
+app.listen(PORT, () => console.log(`Servidor boladão ON porta ${PORT}`));
