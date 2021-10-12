@@ -3,15 +3,14 @@ const { Schema, model } = require('mongoose');
 const gameSchema = new Schema(
     {
         title: String,
-        genero: { type: String, require: true, unique: true },
-        descricao: { type: String, require: true, unique: true },
+        genero: {type: String},
+        descricao: {type: String},
         preco: Number,
-        quantidade: Number,
-        game: [{ type: Schema.Types.ObjectId, ref: 'Game' }]
+        quantidade: Number,       
     },
 
     {
-        timestamps: true
+        timestamps: true,
     },
 );
 module.exports = model('Game', gameSchema);
