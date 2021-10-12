@@ -1,11 +1,12 @@
+require('dotenv').config();
+
 const express = require('express');
 
-const PORT = 5000;
+const cors = require('cors');
 
-require('./config/db-config')
-
-
-
+require('./config/db.config')
 const app = express();
+app.use(express.json());
+app.use(cors());
 
-app.listen(PORT, () => console.log(`Servidor boladão ON porta ${PORT}`));
+app.listen(process.env.PORT, () => console.log(`Server listen UP Port ${process.env.PORT}`));
