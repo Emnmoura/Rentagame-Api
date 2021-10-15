@@ -9,7 +9,10 @@ const app = express();
 app.use(express.json());
 app.use(cors());
 
+//puxando as rotas
 const gameRouter = require('./routes/Game.routes')
+
+//rotas
 app.use('/', gameRouter)
 
 
