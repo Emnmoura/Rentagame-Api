@@ -25,4 +25,29 @@ router.get('/all', async (req, res) =>{
     }
 })
 
+//ver uma locação
+
+router.get('/:locationId', async ( req, res) => {
+    const {locationId} = req.params;
+    try {
+        const location = await Location.findById(locationId);
+        res.status(200).json(location);
+    } catch (error) {
+        res.status(500).json({ message: 'Locação nao encontrada', error});
+    }
+})
+
+//editar locação
+
+router.put('/:locationId', async (req, res) => {
+    const {locationId} = req.params;
+    try {
+        const location = await Location.findByIdAndUpdate(locationId, req.body, {new: true});
+        res.status(200).json(location)
+    } catch (error) {
+        res.status(500).json({message: 'Erro ao editar a locação', error});
+        
+    }
+})
+
 module.exports = router;
