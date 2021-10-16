@@ -1,4 +1,4 @@
-const { Schema, model } = require('mogoose');
+const { Schema, model } = require('mongoose');
 const { prependOnceListener } = require('./Game');
 
 const locationSchema = new Schema(

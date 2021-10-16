@@ -26,7 +26,7 @@ router.post('/games', async (request, response) => {
     }
 });
 
-router.get('/', async (request, response) => {
+router.get('/', async (request, res) => {
     try {
         const games = await game.find();
         res.status(200).json(games);
@@ -35,8 +35,8 @@ router.get('/', async (request, response) => {
     }
 });
 
-router.get('/:id', async (request, response) => {
-    const { id } = req.params;
+router.get('/:id', async (request, res) => {
+    const { id } = request.params;
     try {
         const game = await Game.findById(id);
         res.status(200).json(game);
@@ -56,7 +56,7 @@ router.put('/:id', async (request, response) => {
     }
 });
 
-router.delete('/:id', async (request, response) => {
+router.delete('/:id', async (request, res) => {
     const { id } = request.params;
     try {
         await Game.findByIdAndDelete(id);
