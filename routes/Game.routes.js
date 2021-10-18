@@ -31,7 +31,7 @@ router.get('/', async (request, res) => {
         const games = await game.find();
         res.status(200).json(games);
     } catch (error) {
-        res.status(500).json({ msg: 'Server com Error', error });
+        res.status(500).json({ msg: 'Server com Erro', error });
     }
 });
 
@@ -41,7 +41,7 @@ router.get('/:id', async (request, res) => {
         const game = await Game.findById(id);
         res.status(200).json(game);
     } catch (error) {
-        res.status(500).json({ msg: 'Erro game not found error', error });
+        res.status(500).json({ msg: 'Erro game not found', error });
     }
 });
 
