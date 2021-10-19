@@ -2,7 +2,7 @@ const { Router } = require('express');
 const Game = require('../models/Game');
 const router = Router();
 
-router.post('/games', async (request, response) => {
+router.post('/', async (request, response) => {
     const {
         title,
         genero,
@@ -26,7 +26,7 @@ router.post('/games', async (request, response) => {
     }
 });
 
-router.get('/', async (request, res) => {
+router.get('/all', async (request, res) => {
     try {
         const games = await game.find();
         res.status(200).json(games);
