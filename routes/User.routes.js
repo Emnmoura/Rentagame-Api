@@ -5,7 +5,7 @@ const jwt = require("jsonwebtoken");
 const User = require('../models/Users');
 
 
-const uploadImage = require('../config/cloudinary.config');
+const uploadImage = require('../middlewares/cloudinary.middleware');
 
 const router = Router();
 
@@ -36,7 +36,8 @@ router.post('/signup', async (req, res) => {
 
 //upload de papel parede
 router.post('/user/uploadwallpaper',uploadImage.single('image'), (req, res) => {
-
+console.log(req.file)
+//res.json({msg: "teste"})
 })
 
 router.post("/login", async (req, res) => {
