@@ -1,12 +1,16 @@
 const { Router } = require("express");
 const bcrypt = require('bcryptjs');
+const jwt = require("jsonwebtoken");
 
-const Users = require('../models/Users');
+const User = require('../models/Users');
+
+
+const uploadImage = require('../middlewares/cloudinary.middleware');
 
 const router = Router();
 
 //signup 
-router.post('/sigup', async (req, res) => {
+router.post('/signup', async (req, res) => {
     const { username, password } = req.body;
     try {
         if (!username || !password) {
@@ -28,6 +32,12 @@ router.post('/sigup', async (req, res) => {
         res.status(500).json({ message: 'Error trying to create user', error: error.message });
 
     }
+})
+
+//upload de papel parede
+router.post('/user/uploadwallpaper',uploadImage.single('image'), (req, res) => {
+console.log(req.file)
+//res.json({msg: "teste"})
 })
 
 router.post("/login", async (req, res) => {
