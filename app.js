@@ -32,7 +32,7 @@ app.use(userMiddleware);
 //rotas privadas
 app.use('/game', gameRouter)
 app.use('/location', locationRouter)
-//app.use('/client', clientRouter)
+app.use('/client', clientRouter)
 
 
 
