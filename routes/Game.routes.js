@@ -2,9 +2,9 @@ const { Router } = require('express');
 const Game = require('../models/Game');
 const router = Router();
 
-router.post('/games', async (request, response) => {
+router.post('/', async (request, response) => {
     const {
-        title,
+        titulo,
         genero,
         descricao,
         preco,
@@ -26,9 +26,9 @@ router.post('/games', async (request, response) => {
     }
 });
 
-router.get('/', async (request, res) => {
+router.get('/all', async (req, res) => {
     try {
-        const games = await game.find();
+        const games = await Game.find();
         res.status(200).json(games);
     } catch (error) {
         res.status(500).json({ msg: 'Server com Erro', error });

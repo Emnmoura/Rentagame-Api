@@ -2,11 +2,11 @@ const { Schema, model } = require('mongoose');
 
 const gameSchema = new Schema(
     {
-        title: String,
+        titulo: {type: String},
         genero: {type: String},
         descricao: {type: String},
-        preco: Number,
-        quantidade: Number,       
+        preco:{ type: Number},
+        quantidade:{ type: Number},       
     },
 
     {
