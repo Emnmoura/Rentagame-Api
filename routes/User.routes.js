@@ -10,9 +10,7 @@ const uploadImage = require('../middlewares/cloudinary.middleware');
 const router = Router();
 
 //upload de papel parede
-router.post('/user/uploadwallpaper',uploadImage.single('image'), (req, res) => {
-console.log(req.file)
-//res.json({msg: "teste"})
+router.post('/uploadwallpaper',uploadImage.single('image'), (req, res) => {res.json({msg: "Upload OK!"})
 })
 
 
