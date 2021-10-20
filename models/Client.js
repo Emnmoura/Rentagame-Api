@@ -3,8 +3,8 @@ const { Schema, model } = require('mongoose');
 const clientSchema = new Schema(
     {
     nome: { type: String},
-    endereço: { type: String},
-    telefone: { type: Number},
+    endereco: { type: String},
+    telefone: { type: String},
     cpf: { type: Number},
     },
 

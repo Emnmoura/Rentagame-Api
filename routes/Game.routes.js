@@ -4,7 +4,7 @@ const router = Router();
 
 router.post('/', async (request, response) => {
     const {
-        title,
+        titulo,
         genero,
         descricao,
         preco,
@@ -26,9 +26,9 @@ router.post('/', async (request, response) => {
     }
 });
 
-router.get('/all', async (request, res) => {
+router.get('/all', async (req, res) => {
     try {
-        const games = await game.find();
+        const games = await Game.find();
         res.status(200).json(games);
     } catch (error) {
         res.status(500).json({ msg: 'Server com Erro', error });

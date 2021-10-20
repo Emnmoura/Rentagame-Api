@@ -1,15 +1,27 @@
 const { Router } = require("express");
-const client = require('../models/Client');
+const Client = require('../models/Client');
 const router = Router();
 
 //criar cliente
 router.post('/', async (req, res) =>{
-    const { id } = req.user;
+    console.log(req.body)
+    const { 
+        nome,
+        endereco,
+        telefone,
+        cpf
+     } = req.body;
     try{
-        const client = await Client.create({... req.body});
-        res.status(201).json(client);
+        const newClient = await Client.create({
+            nome,
+        endereco,
+        telefone,
+        cpf
+        });
+        res.status(201).json(newClient);
 
     } catch(error){
+        console.log(error)
         res.status(500).json({message: 'Erro ao criar cliente', error})
     }
 })
@@ -19,7 +31,7 @@ router.post('/', async (req, res) =>{
 router.get('/all', async (req, res) =>{
     try{
         const clients = await Client.find();
-        res.status(200).json(client)
+        res.status(200).json(clients)
     } catch(error){
         res.status(500).json({ message: 'Erro ao tentar buscar todos clientes', error});
     }

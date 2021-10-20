@@ -20,11 +20,13 @@ app.use(cors());
 //puxando as rotas
 const gameRouter = require('./routes/Game.routes')
 const locationRouter = require('./routes/Location.routes')
-const userRouter = require('./routes/User.routes')
-const clientRouter = require('./routes/Client.routes') 
+const authRouter = require('./routes/Auth.routes')
+const clientRouter = require('./routes/Client.routes')
+const userRouter = require('./routes/User.routes') 
 
 //rotas publicas
-app.use('/', userRouter)
+app.use('/', authRouter)
+
 
 //Autenticação
 app.use(userMiddleware);
@@ -33,6 +35,7 @@ app.use(userMiddleware);
 app.use('/game', gameRouter)
 app.use('/location', locationRouter)
 app.use('/client', clientRouter)
+app.use('/user', userRouter)
 
 
 

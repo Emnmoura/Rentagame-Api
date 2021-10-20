@@ -5,7 +5,7 @@ const gameSchema = new Schema(
         titulo: {type: String},
         genero: {type: String},
         descricao: {type: String},
-        preço:{ type: Number},
+        preco:{ type: Number},
         quantidade:{ type: Number},       
     },
 
