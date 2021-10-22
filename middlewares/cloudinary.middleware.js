@@ -15,7 +15,6 @@ cloudinary.config({
       resource_type: 'auto',
     },
   });
-
   
  const uploadImage = multer({ storage});
 

@@ -15,4 +15,5 @@ const locationSchema = new Schema(
         timestamps: true,
     },
 );
+
 module.exports = model('Location', locationSchema);
