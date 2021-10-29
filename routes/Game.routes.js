@@ -10,10 +10,11 @@ router.post('/', async (request, response) => {
         preco,
         quantidade,
     } = request.body
+    console.log(request.body);
 
     try {
         const newGame = await Game.create({
-            title,
+            titulo,
             genero,
             descricao,
             preco,
@@ -22,6 +23,7 @@ router.post('/', async (request, response) => {
         response.status(201).json(newGame);
 
     } catch (error) {
+        console.log(error);
         response.status(500).json({ msg: 'Erro ao tentar criar o jogo', error });
     }
 });
