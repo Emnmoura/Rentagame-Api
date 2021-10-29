@@ -16,7 +16,6 @@ const userMiddleware = require('./middlewares/user.middleware');
 app.use(express.json());
 app.use(cors());
 
-
 //puxando as rotas
 const gameRouter = require('./routes/Game.routes')
 const locationRouter = require('./routes/Location.routes')

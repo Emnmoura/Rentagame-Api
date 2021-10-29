@@ -13,4 +13,5 @@ const gameSchema = new Schema(
         timestamps: true,
     },
 );
+
 module.exports = model('Game', gameSchema);

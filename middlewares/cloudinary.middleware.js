@@ -11,11 +11,10 @@ cloudinary.config({
   const storage = new CloudinaryStorage({
     cloudinary,
     params: {
-      folder: "RentAGame",
-      resource_type: "auto",
+      folder: 'RentAGame',
+      resource_type: 'auto',
     },
   });
-
   
  const uploadImage = multer({ storage});
 
