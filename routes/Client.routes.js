@@ -67,8 +67,8 @@ router.put('/:clientId', async (req, res) => {
 router.delete('/:clientId', async (req, res) => {
     const {clientId} = req.params;
     try {
-        const client = await Client.findByIdAndDelete(clientId, req.body, {new: true});
-        res.status(200).json(client)
+        const client = await Client.findByIdAndDelete(clientId, req.body);
+        res.status(200).json({message: 'Cliente excluido com sucesso'})
     } catch (error) {
         res.status(500).json({message: 'Erro ao excluir cliente', error});
         
