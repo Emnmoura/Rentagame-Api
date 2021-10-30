@@ -3,7 +3,31 @@ const Location = require('../models/Location');
 const router = Router();
 
 //criar locaçao
-router.post('/', async (req, res) =>{
+
+router.post('/new', async (req, res) =>{
+    const { id } = req.user;
+    console.log(req.body)
+    const { 
+        jogoId,
+        clientId,
+        dateLocation,
+       
+     } = req.body;
+    try{
+        const newLocation = await Location.create({
+            jogoId,
+        clientId,
+        dateLocation,
+        userId:id,        
+        });
+        res.status(201).json(newLocation);
+
+    } catch(error){
+        console.log(error)
+        res.status(500).json({message: 'Erro ao criar locação', error})
+    }
+})
+/*router.post('/', async (req, res) =>{
     const { id } = req.user;
     try{
         const location = await Location.create({... req.body});
@@ -12,7 +36,7 @@ router.post('/', async (req, res) =>{
     } catch(error){
         res.status(500).json({message: 'Erro ao criar a locação', error})
     }
-})
+})*/
 
 //ver locaçoes
 
