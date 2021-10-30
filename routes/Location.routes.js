@@ -42,7 +42,7 @@ router.post('/new', async (req, res) =>{
 
 router.get('/all', async (req, res) =>{
     try{
-        const locations = await Location.find();
+        const locations = await Location.find().populate("jogoId clientId")
         res.status(200).json(locations)
     } catch(error){
         res.status(500).json({ message: 'Erro ao tentar buscar todas locações', error});
